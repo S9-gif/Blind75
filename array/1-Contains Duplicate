@@ -1,0 +1,65 @@
+class Solution:
+    def hasDuplicate(self, nums):
+        
+        seen=set()
+    
+        for i in nums:
+          if i in seen:
+                return True 
+          seen.add(i)
+        else:
+            return False  
+        
+
+ 
+solution=Solution()
+
+print(solution.hasDuplicate([1,2,3,4]))
+
+'''Sözde kod:
+
+*Kodun amacı: İnput olarak verilen bir int listede elemanlardan biri tekrar 
+ediyorsa True çıktı verilecek,yoksa false çıktı vericek.
+
+*Input'u biz veriyoruz bu nedenle veri alma ile uğraşmayacağız.
+*Girilen liste için bir class oluşturulmuş solution adında neden 
+oluşturmuş acaba?[Büyük ihtimalle her listeyi bir obje yapısına çeviricez sonucunu]
+*Kısıt olarak liste uzunluğu sınırı ve galiba eleman büyüklüğü sınırı verilmiş.
+*Fonksiyon bool tipinde bir veri döndüredöndürmeli.->bool ile anladığımız bu.
+
+*Listedeki elemanları teker teker kontrol etmeli ve karşılaştırmalıyım 
+*Bunun için de hintlerden gördüğüm 
+
+nums = [1, 2, 3, 4, 5]
+3 in nums 
+
+hash data structure kullanacağız.
+
+
+Çözüm için açıklamam:
+hash data structure kullanmadım onun yerşne kendim düşünmedim ama mantığını anlayarak
+iç içe for döngüsü kullandım bu sayede nums listemde ilk elemanı alıyorum 
+ve for bunu tutuyor daha sonra ikinci for döngüm ilebaşlayacağım yeri ilk 
+aldığım elemandan bir fazla seçerek birinci ve ikinciyi karılaştırmış 
+oluyorum indeksleri sayesinde.
+
+range(len(nums)) kullanarak daha temiz bir sınır belirtiyorum keza ikinci 
+for döngüsünde de birinci elemendna sonra ikinci fro döngüsünde yine ilk 
+elemanı alıp bug olmaması için i+1 den arama yapmaya başlıyorum
+
+Ana mantık iç içe for döngüleri ve indeksler idi
+
+ve bu soruyu çözerken big o notation kavramıı hatırlamış oldum daha da öğrendim
+burdaki algıritmada her eleman için çoklu işlem yapılıyor AMA
+
+leetcode benden O(n) zamanında çalışan bir algoritma istiyor bu nedenle daha 
+akıllı hale getirmemiz lazım
+
+Bunun için daha önce daha önce görmediğim data yapılarından biri olan set()'i
+kullanacağız.set ile birlikte en azından bu örnek için tekli eklemeler yapabilmekteyiz
+for döngüsü ile her num değeri için gezindim ve ekledim eklemelere devam ederken 
+ilgli değer set içinde varsa True döndürdük.
+'''
+
+
+
