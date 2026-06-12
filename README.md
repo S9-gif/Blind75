@@ -12,6 +12,7 @@ One problem per day, following topic dependency order.
 |---|---------|-------|------------|------|
 | 1 | Comtains Duplicate | Arrays & Hashing | Easy | 2026-06-10 |
 | 2 | Valid Anagram | Arrays & Hashing | Easy | 2026-06-11 |
+| 3 | Two Sum | Arrays & Hashing | Easy | 2026-06-12 |
 
 
 ## Topics
