@@ -1,0 +1,73 @@
+'''4-Group Anagrams'''
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        
+
+        anagrams = dict()
+
+
+        for i in strs:
+            x=tuple(sorted(i)) #for ile listedeki ilk kelimeyi alıp harflerine ayırdık ve alfabetik sıraladık.
+                               #Keza key olarak liste kullanamayacağımız için değiştirilemez olan tuple kullandık. 
+            if x not in anagrams:
+
+                anagrams[x]=[] #Bu sayede anagramda bulunmayan,key olacak parçalamalarımızdan birini boş bir key value olarak döndürdük.
+            
+            #anagram isimli 
+            
+            anagrams[x].append(i)#Hala aynı for döngüsü i̇çinde olduğum için key ataması yaptıktan sonra üzerinde bulunduğum elemanı o key'e value olarak ekleyebiliyorum
+
+            #benden çıktı olarak gruplanmış kelimeleri istediği için buradaki hash map de value lara denk gelen kısmı istiyor aslında o yüzden Hatch map'den value ları alacağım.
+
+        return list(anagrams.values())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+PROBLEM:
+*Önceki problemden çıkarttığım ders üzerine problemı anlama aşamasına daha
+özenli davranıcam.
+
+*Problemin istediği strs adı ile verilen ve string tipinde veriler içeren
+dizide anagram olan kelimeleri gruplayarak çıktı vermek,çıktının belli bir
+kriteri yok anagramların gruplu olması yeterli.
+
+*Topic olarak hash table yani sözlükler ve sorting verilmiş.Sorting anagram
+bulmak için hash table grublamak için kullanılacak.
+
+*Hash_map kullanarak nasıl gruplayacağım
+Şöyle bir yapıyı kurabiliriz key olarak parçalanmış ve sıralanmış kelimeler
+value olarak de buna uyan kelimeleri getireceğiz.
+
+
+*********ÇÖZÜM*********
+
+
+Önceki problemde fark edemeyip bu problemde fark ettiğim hash table ysni sözlüklerde
+ilgili key eklemesi ve value atamsını aynı döngüde yapabiliyor olmamız.
+Aynı zamanda sorted fonksiyonunun verilen yapıyı parçalayarak direkt sort etmesi
+
+
+boş bir hash_map olşturdum ,elimdeki str listesinde for döngüsü ile gezinip her gördüğüm
+eleman için parçalama ve sıralama yaptım ve her hashmpa de bulunmayanı bir 
+key olarak ekledim daha sonra eklenen key'in ya da var olan key'in value 
+değerini append ile ekledim
+
+
+
+'''
