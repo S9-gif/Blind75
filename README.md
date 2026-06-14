@@ -14,7 +14,7 @@ One problem per day, following topic dependency order.
 | 2 | Valid Anagram | Arrays & Hashing | Easy | 2026-06-11 |
 | 3 | Two Sum | Arrays & Hashing | Easy | 2026-06-12 |
 | 4 | Group Anagrams| Arrays & Hashing | Easy | 2026-06-13 |
-| 5 | Top K Frequent Elements Arrays & Hashing | Easy | 2026-06-14 |
+| 5 | Top K Frequent Elements| Easy | 2026-06-14 |
 
 ## Topics
 - Arrays & Hashing (Here)
