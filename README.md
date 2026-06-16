@@ -17,7 +17,7 @@ Encode and Decode Strings
 | 4 | Group Anagrams| Arrays & Hashing | Medium | 2026-06-13 |
 | 5 | Top K Frequent Elements| Arrays & Hashing | Medium | 2026-06-14 |
 | 6 | Encode and Decode Strings| Arrays & Hashing | Medium | 2026-06-15 |
-
+| 7 | Products of Array Except Self| Arrays & Hashing | Medium | 2026-06-16 |
 
 ## Topics
 - Arrays & Hashing (Here)
