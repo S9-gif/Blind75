@@ -18,6 +18,7 @@ Encode and Decode Strings
 | 5 | Top K Frequent Elements| Arrays & Hashing | Medium | 2026-06-14 |
 | 6 | Encode and Decode Strings| Arrays & Hashing | Medium | 2026-06-15 |
 | 7 | Products of Array Except Self| Arrays & Hashing | Medium | 2026-06-16 |
+| 8 | Longest Consecutive Sequence | Arrays & Hashing | Medium | 2026-06-17 |
 
 ## Topics
 - Arrays & Hashing (Here)
