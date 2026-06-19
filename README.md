@@ -8,7 +8,7 @@ One problem per day, following topic dependency order.
 Encode and Decode Strings
 
 ## Progress
-
+-Valid Palindrome
 | # | Problem | Topic | Difficulty | Date |
 |---|---------|-------|------------|------|
 | 1 | Comtains Duplicate | Arrays & Hashing | Easy | 2026-06-10 |
@@ -19,6 +19,9 @@ Encode and Decode Strings
 | 6 | Encode and Decode Strings| Arrays & Hashing | Medium | 2026-06-15 |
 | 7 | Products of Array Except Self| Arrays & Hashing | Medium | 2026-06-16 |
 | 8 | Longest Consecutive Sequence | Arrays & Hashing | Medium | 2026-06-17 |
+
+| 9 | Valid Palindrome| Two Pointers | Easy | 2026-06-19 |
+
 
 ## Topics
 - Arrays & Hashing (Here)
