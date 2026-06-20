@@ -20,7 +20,7 @@ Encode and Decode Strings
 | 7 | Products of Array Except Self| Arrays & Hashing | Medium | 2026-06-16 |
 | 8 | Longest Consecutive Sequence | Arrays & Hashing | Medium | 2026-06-17 |
 | 9 | Valid Palindrome| Two Pointers | Easy | 2026-06-19 |
-| 10 | 3Sum| Two Pointers | Easy | 2026-06-20 |
+| 10 | 3Sum| Two Pointers | Medium | 2026-06-20 |
 
 ## Topics
 - Arrays & Hashing (Here)
