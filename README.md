@@ -21,6 +21,7 @@ Encode and Decode Strings
 | 8 | Longest Consecutive Sequence | Arrays & Hashing | Medium | 2026-06-17 |
 | 9 | Valid Palindrome| Two Pointers | Easy | 2026-06-19 |
 | 10 | 3Sum| Two Pointers | Medium | 2026-06-20 |
+| 11 | Container With Most Water| Two Pointers | Medium | 2026-06-21 |
 
 ## Topics
 - Arrays & Hashing (Here)
