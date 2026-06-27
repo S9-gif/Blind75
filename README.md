@@ -22,7 +22,7 @@ Encode and Decode Strings
 | 9 | Valid Palindrome| Two Pointers | Easy | 2026-06-19 |
 | 10 | 3Sum| Two Pointers | Medium | 2026-06-20 |
 | 11 | Container With Most Water| Two Pointers | Medium | 2026-06-21 |
-| 12 Best Time to Buy and Sell Stock| | Sliding Windows | Easy | 2026-06-27 |
+| 12 |Best Time to Buy and Sell Stock| | Sliding Windows | Easy | 2026-06-27 |
 
 ## Topics
 - Arrays & Hashing (Here)
