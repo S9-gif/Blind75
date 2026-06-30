@@ -23,6 +23,7 @@ Encode and Decode Strings
 | 10 | 3Sum| Two Pointers | Medium | 2026-06-20 |
 | 11 | Container With Most Water| Two Pointers | Medium | 2026-06-21 |
 | 12 |Best Time to Buy and Sell Stock| Sliding Windows| Easy | 2026-06-27 |
+| 13 |Longest Substring Without Repeating Characters| Sliding Windows| Medium | 2026-06-30 |
 
 ## Topics
 - Arrays & Hashing (Here)
