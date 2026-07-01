@@ -24,7 +24,7 @@ Encode and Decode Strings
 | 11 | Container With Most Water| Two Pointers | Medium | 2026-06-21 |
 | 12 |Best Time to Buy and Sell Stock| Sliding Windows| Easy | 2026-06-27 |
 | 13 |Longest Substring Without Repeating Characters| Sliding Windows| Medium | 2026-06-30 |
-| 14 || Longest Repeating Character Replacement| Medium | 2026-07-01|
+| 14 |Longest Repeating Character Replacement| Sliding Windows| Medium | 2026-07-01|
 
 ## Topics
 - Arrays & Hashing (Here)
