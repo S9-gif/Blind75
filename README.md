@@ -25,6 +25,8 @@ Encode and Decode Strings
 | 12 |Best Time to Buy and Sell Stock| Sliding Windows| Easy | 2026-06-27 |
 | 13 |Longest Substring Without Repeating Characters| Sliding Windows| Medium | 2026-06-30 |
 | 14 |Longest Repeating Character Replacement| Sliding Windows| Medium | 2026-07-01|
+| 15 |Minimum Window Substring| Sliding Windows| Hard | 2026-07-02|
+
 
 ## Topics
 - Arrays & Hashing (Here)
