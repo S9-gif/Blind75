@@ -28,6 +28,8 @@ Encode and Decode Strings
 | 15 |Minimum Window Substring| Sliding Windows| Hard | 2026-07-02|
 | 16 |Valid Parentheses| Stack | Easy | 2026-07-04|
 | 17 |Find Minimum in Rotated Sorted Array| Binary Search | Medium | 2026-07-05|
+| 18 |Prerequisites| Binary Search | Medium | 2026-07-06|
+
 
 
 
