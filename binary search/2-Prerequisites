@@ -1,0 +1,82 @@
+
+'''2-Prerequisites'''
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        
+
+        l=0
+        r=len(nums)-1
+
+        while l<r:
+
+            mid=(l + r) // 2   
+
+
+            if nums[mid]==target:
+                return mid
+
+            elif nums[mid]>target:  #Sağda kalıyor anlamına geliyor.
+
+                l=mid+1
+            else:
+                r=mid
+
+
+        return -1
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+
+PROBLEM:
+
+Verilen ve yine döngüye tabi tutulmuş ,eşsiz elemanlardan oluşan bir dizi için bizlere target değer
+veriliyor.İstenen target değer dizide varsa indeksini döndürmek yoksa -1 döndürmek.
+Ve bunu binary search ile O(logn) sürede yapmamız isteniyor.
+
+
+
+Bu döngüye tabi tutulmuş dizi aslında yine sıralı olacaktır he ne kadar sırası bozulmuş olsa da
+misal[3,4,5,6,1,2] şeklindei bir dizi için hedef değer 1 olsun.Binary searvh ile ararken yine bir mid
+indeks kullanabilir ve bu mid indekse göre arama yönümü belirleyebilirim.
+
+
+*********ÇÖZÜM*********
+
+
+Aslında iki binary search sorusu birbirinin aynısı o yüzden bir iki değişken değiştirmesi il aynı 
+soruyu yazdık.Zaten binary search için de farklı bir soru tipi yok anladığım kadarıyla.
+
+
+
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
