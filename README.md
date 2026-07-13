@@ -29,7 +29,10 @@ Encode and Decode Strings
 | 16 |Valid Parentheses| Stack | Easy | 2026-07-04|
 | 17 |Find Minimum in Rotated Sorted Array| Binary Search | Medium | 2026-07-05|
 | 18 |Search in Rotated Sorted Array| Binary Search | Medium | 2026-07-06|
-| 19 |Reverse Linked List| Liked List | Easy | 2026-07-08|
+| 19 |Reverse Linked List| Linked List | Easy | 2026-07-08|
+| 20 |Merge Two Sorted Linked Lists| Linked List | Easy | 2026-07-12|
+
+
 
 
 
