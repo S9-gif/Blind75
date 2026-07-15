@@ -31,6 +31,11 @@ Encode and Decode Strings
 | 18 |Search in Rotated Sorted Array| Binary Search | Medium | 2026-07-06|
 | 19 |Reverse Linked List| Linked List | Easy | 2026-07-08|
 | 20 |Merge Two Sorted Linked Lists| Linked List | Easy | 2026-07-12|
+| 21 |Linked List Cycle Detection| Linked List | Easy | 2026-07-15|
+
+
+
+
 
 
 
