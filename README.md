@@ -1,5 +1,5 @@
 # Blind75
-Blind 75 algorithm solutions in Python — one problem per day, ordered by topic dependency.
+Blind 75 algorithm solutions in Python — Every day I tackle a new problem and post about it consistently, ordered by topic dependency.
 
 # Blind 75 — Algorithm Practice
 
