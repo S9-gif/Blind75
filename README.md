@@ -35,6 +35,11 @@ Encode and Decode Strings
 | 22 |Reorder Linked List| Linked List | Medium | 2026-07-17|
 | 23 |Remove Nth Node From End of List| Linked List | Medium | 2026-07-27|
 | 24 X |Merge K Sorted Linked Lists| Linked List | Hard | 2026-07-30|
+| 25  |Invert Binary Tree| Trees | Easy | 2026-07-31|
+
+
+
+
 
 
 
