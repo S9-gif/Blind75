@@ -37,6 +37,7 @@ Encode and Decode Strings
 | 24 X |Merge K Sorted Linked Lists| Linked List | Hard | 2026-07-30|
 | 25 |Invert Binary Tree| Trees | Easy | 2026-07-31|
 | 26 |Maximum Depth of Binary Tree| Trees | Easy | 2026-08-01|
+| 27 |Same Binary Tree| Trees | Easy | 2026-08-02|
 
 
 
