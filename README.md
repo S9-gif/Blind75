@@ -38,6 +38,7 @@ Encode and Decode Strings
 | 25 |Invert Binary Tree| Trees | Easy | 2026-07-31|
 | 26 |Maximum Depth of Binary Tree| Trees | Easy | 2026-08-01|
 | 27 |Same Binary Tree| Trees | Easy | 2026-08-02|
+| 28 |Subtree of Another Tree| Trees | Easy | 2026-08-04|
 
 
 
