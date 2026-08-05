@@ -39,6 +39,9 @@ Encode and Decode Strings
 | 26 |Maximum Depth of Binary Tree| Trees | Easy | 2026-08-01|
 | 27 |Same Binary Tree| Trees | Easy | 2026-08-02|
 | 28 |Subtree of Another Tree| Trees | Easy | 2026-08-04|
+| 29 |Lowest Common Ancestor in Binary Search Tree| Trees | Medium | 2026-08-05|
+
+
 
 
 
