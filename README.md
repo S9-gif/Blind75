@@ -41,6 +41,8 @@ Encode and Decode Strings
 | 28 |Subtree of Another Tree| Trees | Easy | 2026-08-04|
 | 29 |Lowest Common Ancestor in Binary Search Tree| Trees | Medium | 2026-08-05|
 | 30 |Binary Tree Level Order Traversal| Trees | Medium | 2026-08-08|
+| 31 |Valid Binary Search Tree| Trees | Medium | 2026-08-09|
+
 
 
 
