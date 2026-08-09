@@ -1,0 +1,75 @@
+'''7-Valid Binary Search Tree'''
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+
+
+       
+        def check(node,left,right):
+
+
+
+            if node is None:
+                return True
+                
+            #Genel kontrol
+            if not (left < node.val < right): 
+                return False 
+            
+            #low ile high ile ilgli güncelleme vs işlemlerini burda yapıcam  
+
+            return(check(node.left,left,node.val) and check(node.right,node.val,right))
+
+
+            #sol çocuğa geçerken high, root olur ama bir llow sınır olmaz sağa geçerken de low root olur high için sınır yok
+
+            
+        return check(root,float('-inf'),float('inf'))   #Başlangıç parametresi root başlangıç sınırı root için sınırsızdır.
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+        Problem:
+
+Bana verilen root'a bakarak,elimdeki binary tree'nin valid olup olmadığını 
+kontrol edicem.
+Bir binary tree'nin valid olması için her root'un sol elemanı roottan küçük
+,sağ elemanı root'dan büyük olmalı.
+
+
+
+
+        Çözüm
+
+*Öncelikle problemi anlamada sıkıntı yaşadım.Bu da çözümümü etkiledi.Özetleyecek olursakverilen
+root ile birlikte binary tree'nin geçerli olup olmadığını kontrol etmem gerekliydi.Bunun için
+koşulum zaten sorunun üzerinde yer almakta.Ama kilit nokta bu koşulları uyarlayabilmekte ve 
+anlayabilmekte.Benim yaşadığım sorun da burda düşünce doğru yöndekyken bunu somutlaştıramadım.
+Olması gereken şu elimde bir root var ve tree'nin bst sayılabilmesi için soldaki elemanların 
+roottan küçük sağdaki elemanların hepsinin büyük olması gerekli.Aynı zamanda local olarak da 
+verilen koşulı sağlamaları gerekiyor.Bunun için sınırlandırarak ilelememiz gerekli.left ve right soldan ve sağdan sınırlamamı sağlayacak değişkenlerim.ALgoritmanın mantığı basit;sol yarıa
+gidiyorsan üst sınırı limitlersin önceki node ile; sağ tarafa gidiyorsan alt sınırı sol ile
+sınırlarsın bu her kısım için geçerlidir.
+
+Aynı zamanda üstte bahsettiğim üzere sol ve sağ değişkenlerime ihtiyacım var ve recursive döngüde 
+bunlar sürekli yenilenmeli,fakat bana verilen fonksiyonda bu parametreler yazılı değil.Ben de
+bunun üzerine check isimli bir fonksiyon oluşturdum-iç fonksiyon- bu fonksiyon sol sağ koşulumu
+kontrol edecek.Recursive döngü ile problemi sonandırdım.
+
+'''
