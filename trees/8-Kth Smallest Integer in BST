@@ -1,0 +1,113 @@
+'''8-Kth Smallest Integer in BST'''
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        
+
+        current=root
+        stack=[]
+
+        # k'yı bir sayaçgibi mi kullanıcam while döngüsünde ilerledikçe pop işlemi yaıyorum bu da 
+        #stackden elemanları seçmemi imkansız kılıyor
+        #Evet k sayaç olmalı
+        sayac=k
+
+        while current or stack:
+
+            
+            if  current is not None:
+                #Burdaki durum için push edicez
+                stack.append(current)
+                current=current.left
+
+
+
+            else:
+            #Daha fazla sola gidemediğim durumda pop etmeliyim.Yani current none olduğunda
+
+                node=stack.pop()
+                current = node.right#Burda bir önceki node a dönüp pop edip sağa gitmeli ve döngünün başına dönmeliyim!!!
+                sayac-=1
+
+                if sayac == 0:
+                    return node.val
+
+        #Nasıl k yı kullanarak çıktı alıcam
+
+
+
+
+'''
+
+
+        Problem:
+
+* verilen BST ağacının root'u için k. En küçük değeri bulmamız isteniyor
+
+        Çözüm:
+
+* düşünce süreci mi tamamen kağıda yazdım kağıttan buraya aktaracagim
+* ilk olarak DFS kullanmamız gerektiğini düşündüm ki doğruymuş
+* aynı zamanda K'yi nasıl kullanacağımıza karar verirken direkt olarak indeks gibi kullanacağımızı
+Düşündüm ilk başta fakat böyle kullanmak işleri çok zorlaştırıyor.
+*BST yapıdaki Ağaçlarda root solu daima küçük olacağından aramaya sürekli solda ve soldan devam 
+etmemiz gerektiğini düşündüm.
+* bu noktada farklı farklı yöntemler de düşündüm en küçük değeri sürekli olarak bir değişkene
+Atmak ve onu güncellemek, derinlik ne kadar artıyorsa aradığımız en Küçüğün sol yarı da olma 
+ihtimalini artması K =1 için ayrı bir arama yapmak vs... ama bunların hepsi sonuç olarak doğru 
+çözüme ulaştırmadı.
+* bunun üzerine DFS algoritmasına daha da incelemeye başladım. Ve doğru Steck stack kullanımı ile
+pop kullanımı sayesinde k yı bir sayaç gibi kullanarak tree de gezinbileceğimi buldum.
+* algoritmanın temel mantığı şu şekilde işliyor:current adında bir değişkenimiz var ve bu değişken
+Sürekli olarak sol node'ye gitmeye çalışmakta ve er ya da geç bu değişken none oluyor.None
+Olduğu durumda else koşuluna girip Pop ediliyor ve bir sağa kaydırılıyor. Kısacası buradaki mantık
+Kağıtta ya da görselleştirilerek daha iyi anlaşılabilir fakat current is not none için stacke push.
+none için pop yapılır.
+* K sayacı bittiğinde en son pop edilen aradığımız değer olmakta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
