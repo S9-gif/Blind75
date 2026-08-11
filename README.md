@@ -42,6 +42,7 @@ Encode and Decode Strings
 | 29 |Lowest Common Ancestor in Binary Search Tree| Trees | Medium | 2026-08-05|
 | 30 |Binary Tree Level Order Traversal| Trees | Medium | 2026-08-08|
 | 31 |Valid Binary Search Tree| Trees | Medium | 2026-08-09|
+| 32 |Kth Smallest Integer in BST| Trees | Medium | 2026-08-11|
 
 
 
@@ -54,7 +55,8 @@ Encode and Decode Strings
 
 
 
-## Topics
+
+## Solved Topics
 - Arrays & Hashing (Here)
 - Two Pointers
 - Sliding Window
