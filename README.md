@@ -43,6 +43,9 @@ Encode and Decode Strings
 | 30 |Binary Tree Level Order Traversal| Trees | Medium | 2026-08-08|
 | 31 |Valid Binary Search Tree| Trees | Medium | 2026-08-09|
 | 32 |Kth Smallest Integer in BST| Trees | Medium | 2026-08-11|
+| 33 |Construct Binary Tree from Preorder and Inorder Traversal| Trees | Medium | 2026-08-13|
+
+
 
 
 
