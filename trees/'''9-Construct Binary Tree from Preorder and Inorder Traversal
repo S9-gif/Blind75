@@ -1,0 +1,87 @@
+'''9-Construct Binary Tree from Preorder and Inorder Traversal'''
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+    
+
+
+
+        if not preorder or not inorder:
+            return None
+
+
+        root = TreeNode(preorder[0])
+        mid= inorder.index(preorder[0])
+        root.left=self.buildTree(preorder[1:mid+1],inorder[:mid])
+        root.right=self.buildTree(preorder[mid+1:],inorder[mid+1:])
+
+        return root
+
+
+
+
+
+
+'''
+
+        Problem:
+
+* yaklaşık iki gündür üzerinde uğraşıyorum ve yaklaşık olarak üç sayfa
+ kağıt harcamış bulunmaktayım bunu yazarken. Anlayamadığım tek şey
+ null değerleri nasıl sıraladığımız. Bunun dışında verilen çözümde bile
+ python ile o(n^2) zamanda çözülebilirmiş sadece bu da problemin
+ Aslında ne kadar komplike olduğunu gösteriyor.
+
+ Hatta bir yorum çok hoşuma gitti:jengalı:)
+
+
+
+
+        Çözüm:
+
+* aslında şahsen algoritmanın zor kısmını üstünden geldim fakat bunu 
+koda dökmek ve üstüne üstlük null değerleri çözümlendirebilmek
+Beni tıkadı çözüme ve discussion'a baktığım zamanda da i̇nsanların 
+gerçekten zorlandığını gördüm.
+
+* çözüme gelecek olursak bana preOorder ve inorder şeklinde iki farklı
+Şekilde oluşturulmuş listeler verilmiş benden istenen bu listeleri
+Kullanarak BST ağaç yapımı null değerleri ile birlikte bir liste olarak döndürmem.
+
+*ilk olarak bu bize verilen iki listenin nasıl oluşturulduğu hakkında
+Kafa yordum ve yapılarını inceledim incelediğim zaman preorder 
+listesinin yapısının kök sol sağ şeklinde ilerlediğini inorder 
+listesini yapısının ise sol kök sağ şeklinde ilerlediğini fark ettim.
+
+* bu iki liste arasındaki ortak bir yön sayesinde ana ağacın yapısına
+Ulaşabileceğimizi düşündüm ki haklıymışım sadece bunu koda dökerken
+Ve null 'ları düşünürken bocaladım . Bulduğum benzerlik şu şekildeydi
+preorder listesinin ilk alan elemanı her durumda kök olmakta bu kökü
+inorder listesinde saptarsak ve bu sayede listeleri parçalayabilirsek.
+Hedefimize ulaşabiliyoruz.
+
+* kodda bu kök değerini mid olarak isimlendirdim ve indeksledim
+Bu mid değere göre de parçaladım.Aynı zamanda bu parçalama sonucundaki
+Sol ve sağ listenin uzunlukları da yazdigimiz kodda anlam kargaşası
+Olmaması için önemli.
+
+* fakat bu kod bu problemi istenen zamanda çözmemektedir lineer değil daha çok parabolik bir zamanda çözmekte
+
+
+        
+        
+        
+        
+        
+        
+        
+'''
+
+
+
