@@ -1,0 +1,95 @@
+'''10-Binary Tree Maximum Path Sum'''
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        best = float('-inf')#Bütün ağaç elemanlarının negatif olması ihtimali için eksi sonsuz ile default yazdım.Kii ilk node ile karşılaşılınca ona atansın.
+    
+        def helper(node):
+            nonlocal best#nonlocal fonksiyonun dışarıdaki best'i (kendi local kopyasını değil) okuyup güncelleyebilmesini sağlıyor.
+
+            if node is None:#Base case fonksiyonun devamlılığı için return 0 olarak yazıldı None olsaydı hata alıcaktım.
+
+                return 0
+
+            sol = helper(node.left)
+            sag = helper(node.right)#Burda bulunduğum parametre için sol ve sağ yollara bakıyorum.
+            
+
+            sol = max(sol, 0)
+            sag = max(sag, 0)#Bir kol negatif sonuç döndürüyorsa Negatif kırpması yapıyorum 
+
+            best = max(best, node.val + sol + sag)#Best güncelleniyor.
+
+            return node.val + max(sol, sag)
+    
+        helper(root)
+        return best
+
+
+
+
+
+
+
+'''
+
+        Problem:
+
+* Benden istenen verilen ağaç yapısında en iyi maksimum toplumu veren 
+yolun toplamını vermem.
+* Birbiriyle bağlantısı olabilen bütün yollar bir nevi. Aynı zamanda 
+bir Noden'nin kendisi de path olabilir
+* DfS başlık olarak verilmiş .
+* dinamik bir yapı oluşturabilirim algoritma sürekli bulduğu en iyi yol
+toplamını bir değişken de tutacak ve sürekli yolları deneyecek. Algoritma daha fazla yol bulamayınca da en sonki değişken return 
+edecek.
+
+*Bu noktada bulmam gereken bütün yolları nasıl deneyeceğim.Bunu da 
+recursive döngüyle yapmayı düşündüm.
+* en iyi yolu bulmak için DFS'den yararlanmayı düşündüm bunun için 
+bulunduğum node da hem sağ hem sol için dfs araması yapabilir ve 
+bunları kaydedebilirim.Daha sonra gerekli birleştirme yaparım.
+
+
+
+
+
+        Çözüm:
+
+
+* başlangıç olarak en iyi değeri eksi sonsuz veririm bunun nedeni de
+Ağaçtaki tüm elemanların negatif olabilme ihtimalidir.
+Recursive çağrı yukardan aşağı gider çıktı sondan başa olur bunu göz 
+önünde bulundurma gerekli.
+* her düğüm için best değişkenine bakılacak ve karşılaştırılacak.
+* negatif yollar Max fonksiyonu ile sıfıra kırpılacak işleme böyle 
+dahil edilecek.
+* aynı zamanda yukarıda da belirttiğim gibi base case için None 
+dönrülmeyecek ki işlem devam edebilsin.
+*Geri kalanını zaten recursive çağrı hallediyor.
+
+
+
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
