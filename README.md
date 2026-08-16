@@ -44,6 +44,8 @@ Encode and Decode Strings
 | 31 |Valid Binary Search Tree| Trees | Medium | 2026-08-09|
 | 32 |Kth Smallest Integer in BST| Trees | Medium | 2026-08-11|
 | 33 |Construct Binary Tree from Preorder and Inorder Traversal| Trees | Medium | 2026-08-13|
+| 34 |Binary Tree Maximum Path Sum| Trees | Hard | 2026-08-16|
+
 
 
 
