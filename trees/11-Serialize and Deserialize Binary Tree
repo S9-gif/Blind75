@@ -1,0 +1,142 @@
+'''11-Serialize and Deserialize Binary Tree'''
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Codec:
+    
+    # Encodes a tree to a single string.
+    def serialize(self, root: Optional[TreeNode]) -> str:
+
+        result = []
+        
+        def dfs(node):
+            if node is None:
+                result.append("N")#'N' null'u simgelesin diye
+                return
+            
+            result.append (str(node.val))
+            
+            dfs(node.left)#Burda işte recursive çağtı olmalı
+
+            dfs(node.right)
+
+        dfs(root)   #Fomksiyonu çalıştırmak için
+        return ",".join(result)   #Tek bir data olarak birleştirir.
+
+
+
+    # Decodes your encoded data to tree.
+    def deserialize(self, data: str) -> Optional[TreeNode]:
+
+        values = data.split(",")    #Hadi bir şekilde data adı altında parçaladık diyelim.Elimde vales adında bir liste olması lazım şuanda
+
+        def dfs():
+            val=values.pop(0)
+
+            if val =='N':
+                return None
+
+
+            node = TreeNode(int(val))   #pop ile alınan val değeri str idi bunu yine int çevirdim
+            node.left = dfs()   #soldan devam
+            node.right = dfs()  #Bitince sağdan devam
+
+            return node
+        return dfs()
+            
+
+
+
+
+
+'''
+
+
+
+        Problem:
+
+*Bir ağaç objesini serialize ve deserialize etmek.
+* bazı durumlarda ağaç obje elerimiz çok büyük olabilmektedir ve
+Biz bunları transfer etmek isteyebiliriz gerek bilgisayardan 
+bilgisayara gerek projeden projeye bu durumda bu kadar büyük
+Bir ağaç objesine taşıyabilmek adına bazı işlemler yapmamız gerekir.
+
+* bu işlemler serialize (paketleme) ve deserialize(paketi açma)
+Olarak söylenebilir.
+
+*serialize ile yaptığımız şey ağaç objesine sectigimiz herhangi bir
+Ağaç arama algoritmasıyla gezinip bu ağacı bir veriye çevirmemmiz.
+Yani belirlediğimiz algoritma ne olursa olsun o algoritmanın
+Yani arama algoritmasının sırasına göre ağaç bir stringe çevrilir.
+
+*deserialize kısmında ise bu str'ye çevrilmiş ağacı eski haline yine 
+aynı arama algoritmasının mantığını kullanarak eski haline getiririz.
+
+
+
+        Çözüm:
+
+
+* i̇ki farklı işlem için iki farklı fonksiyon tanımlamış zaten bize
+Bu fonksiyonların içine asıl arama ve dönüştürme işlemlerini yapacak 
+fonksiyonumu ben yazmam gerekli bu problem için uygun gördüğüm
+Arama şekli dfs'den preorder oldu.
+
+* bunun üzerine serialize için yazacağım fonksiyonun en başına
+Listemi tanımladım önce yapıları liste şeklinde aktaracagim sonra bu 
+listeyi bir str olarak birleştireceğim.
+
+* ağaç objesine olduğu gibi korumak istediğimiz için null değerleri de
+Belirtmemiz gerekli bunun için ben 'N' kullandım .None bir değerle karşılaşıldığı zaman listeye bu özel değeri ekleyecek.
+
+* geri kalan asıl elemanları ağaç elemanlarını önce veri tipini 
+değiştirdim daha sonra recursive döngü ile birlikte işleme tabi tuttum.
+
+* en son adımda da fonksiyon mu çağırıp döngüyü başlattım ve final 
+olarak liste yapımı virgüllere göre birleştirdim.
+
+------------------------------------------
+
+
+
+*deserialize adımında da bu anlattığım her şeyin tam tersini yaptım.
+
+*Önce veriyi parçaladım her parça için kontrol edilip int çevirilip 
+eski haline döndürüldü.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+
+
+
+
+
+
+
+
