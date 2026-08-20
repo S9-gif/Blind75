@@ -1,0 +1,100 @@
+'''1-Find Median From Data Stream'''
+class MedianFinder:
+
+    def __init__(self):
+        
+
+        self.sayılar = [] 
+
+
+    def addNum(self, num: int) -> None:
+        
+        i = 0
+        while i < len(self.sayılar) and self.sayılar[i] < num:
+            i += 1
+        self.sayılar.insert(i, num)
+
+        #Sonuç olarak bu fonksiyonun amacı verilen num parametresini class'In bir attribute'u olan sayılar listesine eklemek ve class'ı bir nevi güncellemek.Artık bu class bunda bötle bu lekilde bir sayılar listesine sahip demek.
+
+    def findMedian(self) -> float:
+        
+        # Bu fonk çalıştırıldığında en güncel class attribute 'u olan sayılar listesi iiçin bu listeden medyan hesaplaması gerekli.Medyan listenin ortanca değeridir burda önce kontrol sağlayalım.
+
+        if len(self.sayılar) % 2 == 0: #listedeki eleman sayısı çift ise
+
+            slow, fast = 0, 0
+            while fast + 2 < len(self.sayılar):
+                slow += 1
+                fast += 2
+
+            self.medyan=(self.sayılar[slow]+self.sayılar[slow+1])/2 
+            return self.medyan
+
+            #Burda bu fonksiyon için böyle bir kod yazılabilir mi?
+            #Ve şuanda sayılar lüstesi üzerinde gezmiyorlar gibi
+
+        else:   #Listedeki eleman sayısı tek ise
+        
+            self.medyan=self.sayılar[(len(self.sayılar))//2]
+            return self.medyan
+
+
+
+
+
+
+
+
+
+
+'''
+
+        Problem:
+
+*Benden median finder şeklinde bir class oluşturmamı istiyor
+
+*Example da verilen inpu ve outputtaki listeleri anlamadım neden 
+verilmişler.
+*Sayı eklemeye yarayan bir addNum fonksiyonu ve eklenen sayıların 
+mediyanını bulmaya yarayan findMedian fonksiyonu class'ım için 
+kullanılacak fonksiyonlar.
+*Aynı zamanda gereki tanımlama ve attribte verme işlemlerini de
+bildiğimiz gibi init içinde yapıcaz.
+
+*Heap ve max heap ve adjusting and inserting başlıkları
+*Heap indekslemesi
+*Sıralama için silme kullanılıyor heap de
+*Priority queue da öncelik heap'İn tüürüne göre sayıların kendisidir.
+Bu silme ,oluşturma ve diğer işlemlerde önceliği belirlemede kullanılır
+
+*addNum() fonksiyonuna verilen her sayıda sıralı bir şekilde sayılar listesine eklenmesi gerekli.
+
+
+
+
+
+        Çözüm:
+
+
+* öncelikle genel problemi açıklayayım çözümü açıklayayım sonra yukardaki hangi sorunu 
+nasıl çözdüüğümü açıklayayım:
+* problemi açtığım zaman bana aslında her blind75 sorusunda verildiği gibi bir class 
+verildi fakat bu sefer sadece fonksiyon yazmaktan ziyade bu objeyi de tanımladık.
+* benden istenen yukarıda da belirtildiği gibi bir medyen bulma class'ı oluşturabilmedimdi
+Ben de bunun üzerine şu şekilde oluşturdum: öncelikle init fonksiyonumun içine 
+fonksiyonlarda da kullanacağım sayılar listesi attribute 'unu tanımladım. Daha sonra
+addNum fonksiyon için girilen sayıların sıralı bir şekilde bu sayılar listesine 
+aktarılmasını sağladım en sonunda findMedian fonksiyonunu bu oluşturulan sayılar
+Listesini göz önünde bulunduraraktan iki farklı durum için hesaplatırdım.
+
+
+*Soru ile haşır neşir oldukça örnekteki kullanımı da anladım ve aynı zamanda heap ve queue
+ ve de ağaçlara dair pek bir şey yapmadığımı gördüm.
+
+* çift sayı uzunluğundaki listeler için Media bulmada two pointers ile hızlı ve yavaş
+pointerlar kullanarak ortada yer alan iki elemanı buldum ve ortalamasını aldım.
+
+
+
+
+'''
