@@ -47,6 +47,7 @@ Encode and Decode Strings
 | 34 |Binary Tree Maximum Path Sum| Trees | Hard | 2026-08-16|
 | 35 |Serialize and Deserialize Binary Tree| Trees | Hard | 2026-08-18|
 | 36 |Find Median From Data Stream| Heap/Priority Queue | Hard | 2026-08-20|
+| 37 |Combination Sum| Backtracking| Medium | 2026-08-25|
 
 
 
