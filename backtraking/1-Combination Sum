@@ -1,0 +1,131 @@
+'''1-Combination Sum'''
+class Solution:
+    def combinationSum(self, nums: List[int], target: int) -> List[List[int]]:
+        
+
+
+        result = [] 
+        
+        def backtrack(remaining, current_combination, start_index):
+            
+
+            if remaining == 0:
+                result.append(list((current_combination)))
+                return
+
+            
+            
+            # bounding function: buraya "toplam > target" ya da "remaining < 0" kontrolünü ekle
+            if  remaining<0:
+                return
+
+
+            
+            
+            # döngü: start_index'ten itibaren tüm elemanları dene
+            for i in range(start_index, len(nums)): 
+
+                current_combination.append(nums[i])       #İlk indeks elemanını current_combinationsa ekledik
+                backtrack(remaining - nums[i], current_combination, i) #Bu current_combinations için backtracke yeni parametreleri verdik
+                current_combination.pop()
+        
+        backtrack(target, [], 0)    
+        return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+        Problem:
+
+*Bana verilen bir  benzersiz sayılar içeren liste ve bir target değer.Benden istenen 
+listemdeki sayıları istediğim kadar ve istediğim şekilde kullanarak toplamın target değere eşit olmasıını sağlamak.Kısacası doğru kombinasyon ve frekanstaki sayılar kümesi
+*Daha sonra target değeri veren kombinasyon ya da kombinasyonları bir liste içinde ayrı ayrı döndürmek.
+
+
+
+        Çözüm:
+
+*Bunun için problem başlığındaki back tracking algortitmasını uyarlamalıyız.
+*Brute Force Solution ,yani olası tüm sonuçlar ve kombinasyonların öncelikle bulunmasu 
+gerekli.
+*Bulunan olası sonuçlar bir ağaç şeklinde saklanmalı ve problem için var olan 
+kısıtlamalarımız bu ağaç üzerinden bakılmalı.(Bounding function)
+*Ağaçta gezinirken base case görevi görecek bounding fucntion terimi var.Bunlar büyük bir
+ihtimalle aynı şeyler ve revursive bir döngü ile ağaç üzerinde gezineceğiz.--> Aslına 
+bakarsak aynı şey değiller base case recursive döngüyü sonlandırırken bounding functiion 
+ağaçta gezindiğimiz durmun gerektiz olduğunu ve değiştirmemiz gerektiğini söyler.
+
+*Uygun target değeri veren ağacın nodlarını her bulduğumuzda listeye ekleyeceğiz her uygun 
+olmayan durum için bir sonraki node'a geçeceğiz.
+*Gerekeceği için de velirtmeliyim ki DFS kullanacağız.Hem ağacı oluştururken hem ağacı 
+ararken.
+*Ne ağaç yapısıymış be kardeşim her yerde karşımıza çıkıyo;)
+
+
+*Bir değişken kesinlikle dinamik yapıda target ile her toplamdan sonra karşılaştırılıyor olmalı.
+
+* listede gezinirken sıra ile objelerin dahil edilip edilmediği durumları inceleyeceğim.
+Bunu yaparken şöyle yapacağız örnek veriyorum ilk örnek için olan listeyi göz önünde 
+bulunduracak olursak nums = [2,5,6,9] , bu durumda ,iki elemanını birinci obje olacak ve
+İki elemanınını öncelikle hedef değeri aşana kadar toplama ekleyeceğim -ağaçta tabii ki.
+Daha sonra eğer ki aştı target değeri bu durumda bir node geriye gelip -ya da aşmadığı yere 
+kadar- bir sonraki objeyi deneyeceğim bu da burada beş oluyor bu böyle böyle devam edecek.
+Benim bir tane elemanı birden fazla kez deneme şansım olduğu için tek durdurma yani base 
+case koşulum hedef değerin aşılması durumunda olacak.Her yeni elemana geçtiğimde o elemanı
+sürekli deneyecek.Target geçildiği anda geri dönüp yen elemanla yeni dal oluşturacak.
+*Ama ama önce doğru kombinasyonların bulunduğu ağacı oluşturup sonra doğru kombinasyonları 
+tek tek listeme mi ekleyeceğim bilemedim ama çok büyük ihtimalle böyle olacak.-->Evet bu 
+algoritmanın mantığı da bu zaten.--> Galiba hayır ağaç oluşturulurken doğru toplama sahi olan kombinasyonlar ilk listemde tutulacak.
+
+*Üstüne eklene eklene gidecek.Aslına bakıcak olursak ben ağacı oluşturduğumda hem aşılmış durumları içeren dallar olacak hem de ideal kombinasyonlu dallar olacak daha sonra bounding function ile gezinirken bunları listeme ekleyeceğim ve base case ile işi bitireceğim
+
+
+Sonuç olarak.Büyük ihtimalle bir döngü ya da recursive döngü ile liste elemanlarıma 
+bakıcam.Önce her elemanın kendisi sürekli eklenerek ağaça eklenecek.Bu noktada her eleman eklenmesi bir toplama eklenecek.Bu toplam target değeri geçerse ağaca ekleme durup bir 
+önceki node'a dönecek ve bir sonraki elemana geçen bir ağaç dalı oluşturacak.Targete eşit olan durum için listeye eklenecek ve başa dönecek ve bir sonraki eleman için baştan ağaç oluştutulacak.
+
+Aynı zamanda kullandığım indeksin öncesinde bir indeks deneyemiyorum bu tekrarlara neden
+olur.Bunu engellemek için de bulunduğum indeksi de tutmam gerekli.
+
+
+
+
+
+
+Misal:
+
+
+Input:
+nums = [2,5,6,9]
+target = 9
+
+        2-2-2-2-2(Bu noktada target 9 aşıldı bir node geri)
+        2-2-2-2-5(Bu noktada target 9 aşıldı bir node geri ve yeni deneyelim)
+        2-2-2-2-6(Bu noktada target 9 aşıldı bir node geri ve yeni deneyelim)
+        2-2-2-2-9(Bu noktada target 9 aşıldı  ve listedeki tüm elemanlar denendi iki node geriye gidelim  ve yeni deneyelim)
+        2-2-2-5(Bu noktada target 9 aşıldı bir node geri ve yeni deneyelim)
+
+        ... Bu böle böyle ilerleyecek burdaki her adım bir ağaç dalı
+
+
+
+
+
+
+
+
+
+
+
+'''
