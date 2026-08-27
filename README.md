@@ -48,7 +48,7 @@ Encode and Decode Strings
 | 35 |Serialize and Deserialize Binary Tree| Trees | Hard | 2026-08-18|
 | 36 |Find Median From Data Stream| Heap/Priority Queue | Hard | 2026-08-20|
 | 37 |Combination Sum| Backtracking| Medium | 2026-08-25|
-
+| 38 |Word Search| Backtracking| Medium | 2026-08-27|
 
 
 
@@ -73,4 +73,5 @@ Encode and Decode Strings
 - Linked List
 - Trees
 - Heap/Priority Queue
+- Backtracking
 - ...
