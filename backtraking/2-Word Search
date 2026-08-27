@@ -1,0 +1,129 @@
+'''2-Word Search'''
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        
+
+        rows = len(board)
+        cols = len(board[0]) 
+        visited = set()  # ziyaret edilen (row, col) çiftlerini tutacak indeks olarak
+
+        def backtrack(row: int, col: int, k: int) -> bool:
+            #Base case - tüm kelime eşleşti mi? (k == len(word))
+            if (k == len(word)):
+                return True
+            
+            #Base case - sınır dışı mı?
+            if (row < 0 or row >= rows or col < 0 or col >= cols):
+                return False
+            
+            #Base case - daha önce ziyaret edildi mi ya da
+            if (row, col) in visited:
+                return False
+
+            #harf uyuşmuyor ise
+            if board[row][col] != word[k]:
+                return False
+            
+            # Buraya geldiysen: harf uyuşuyor demektir -> işaretle
+            visited.add((row, col))
+            
+            #4 komşuya recursive çağrı yap (yukarı, aşağı, sağ, sol)
+            for dr, dc in [(-1,0),(1,0),(0,-1),(0,1)]:
+                if backtrack(row+dr,col+dc,k+1):
+                    return True
+            found = False
+            
+            #Hiçbiri işe yaramadıysa -> işareti geri sil (backtrack)
+            if not found:
+                visited.remove((row, col))
+            
+            return found
+
+       
+        for r in range(rows):
+            for c in range(cols):
+                if board[r][c] == word[0]:
+                    if backtrack(r, c, 0):
+                         return True
+
+        return False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+        Problem:
+
+*Board adında iki boyutlu bir liste yapısı verilmiş(liste içinde liste).
+aynı indekse sahip elemanlar aynı kolonda bulunmakta.Aynı zamanda listenin genel listeler sıralamasında da satırları belirtmekte.Bu da aslında benim matris yapım.
+
+*Aynı zamanda word adında bir string değer veriliyor.Benden istenen bu 
+word tabloda(listede) bir şekilde var mı?
+*Birleşik şekilde olması için mutlaka alt alta ya da üst üste olacak şekilde harflerin birbirine komşu olması gerekli.-->Zaten bütün oluşturacağım 
+kombinasyonlar bu kurala uyuyor olacak.Ben burdan istediğimi arayacağım.
+
+*Bu arada önceki örnekte olduğu gibi hem arama hem de ağacı oluşturma işlemlerini birlikte yapıcam.Misal bir ağaç dalı tamamen eklendi o ağaç dalı kontrol edilecek.
+Doğru uygunluğu gördüğü anda return True dönecek.
+
+
+
+
+
+        Çözüm:
+
+*Öncelikle elimdeki şablonu iyice sindirmek istiyorum.Elimdeki her bir liste
+satırları simgelerken bu listelerin eleman sayıları eşit.Bu da zaten 
+şablon olabilmesi için şart(kolonların da birbirine denk olması gerekli).
+
+*Her (ayrı listelerin) listenin aynı indeksleri birbirine komşudur.(kolon bazında)
+*Her ardışık liste elemanları birbirine komşudur(satır bazında).
+
+
+*Hedef komşuluk bu ikisini içeren bağlardan oluşmalı.Her olası kelime grubu bu  
+şekilde  denenmeli.
+
+*Bu bir backtracking sorusu olduğu için şöyle düşündüm:
+    Şablondaki her harf için olası bütün komşuluklar ziyaret edilecek.
+    Misal A harfi için bütün komşuluklar ve uzunluklarda,sonra B harfi için vs...
+
+*Peki bütün olası komşulukları ve kombinasyonları bir şekilde ağaç yapımda
+dal olarak kaydettim diyelim sonra istenen "CAT" kelimesini nasıl bulucam?
+
+
+*Aynı zamanda ziyaret ettiğim bir harfi döngü içinde bir daha ziyaret etmemem 
+gerekli--> geçici olarak her gezdiğim harfin lokasyonunu(matris) bir yerde tutabilirim(hash table)
+
+*Mevcut gezdiğim kombinasyon  içinde gezdiğim harfi bşr daha kullanamam.
+*Ziyaret edilen harfin matris konumunu tutabiliirm.Bu sayede bir daha geldiğinde onun gezilmiş olduğunu görür ve ona gitmez.
+*Base case durumum da matrisin indesklerinin dışına çıkmaya çalışınca çalışmalı.
+Misal 4x4 lük bir matris için sonraki komşu none ise durmalı recursive döngü.
+
+
+
+        Sözde kod:
+*Board üzerinde word[0]'a eşit her hücreden başlayarak, o an bulunduğum hücrenin sınır dışı olup olmadığını, daha önce bu yolda ziyaret edilip edilmediğini ve içindeki harfin aradığım word[k] harfine eşit olup olmadığını kontrol edip (bunlardan biri bile uymazsa False dönerek), harf uyuşuyorsa hücreyi ziyaret edildi olarak işaretleyip dört komşusuna (k+1 ile) recursive olarak devam ediyorum, komşulardan biri True dönerse ben de True dönüyorum, hiçbiri işe yaramazsa hücrenin işaretini geri silip (False ile) bir önceki çağrıya dönüyorum, ta ki k, kelimenin uzunluğuna eşit olup tüm harfler sırayla eşleşene kadar (bu durumda True dönüyorum).
+
+
+
+
+
+
+
+
+
+
+
+
+'''
