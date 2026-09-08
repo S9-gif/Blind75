@@ -1,0 +1,96 @@
+'''1-Implement Trie (Prefix Tree)'''
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end = False
+
+
+class PrefixTree:
+    def __init__(self):
+        self.root = TrieNode()        
+
+    def insert(self, word: str) -> None:
+        
+        current= self.root
+
+        for char in word:
+            
+
+
+            if char not in current.children:
+                #Burda yeni bir yol,node nesnesi tanımlamalıyım.
+                current.children[char]=TrieNode()
+                #Burdaki nesne işi karıştırıyor yeni node eklemeye bakmak lazım.
+
+            current = current.children[char]#Varsa zaten yeniye eşitle yeterli
+
+        current.is_end = True
+
+    def search(self, word: str) -> bool:
+        
+        current= self.root
+
+        for char in word:
+            
+            if char not in current.children:
+                return False
+                
+
+            current = current.children[char]
+
+        return current.is_end
+
+    def startsWith(self, prefix: str) -> bool:
+        current= self.root
+
+        for char in prefix:
+            
+            if char not in current.children:
+                return False
+                
+
+            current = current.children[char]
+
+        return True
+
+
+
+
+'''
+
+        Problem:
+
+
+* sırasıyla verilecek olan kelimeleri bir ağaç yapısı olan tries için işlem
+Tanımlamak benden isteniyor. Yeni ekleme kelime bulma ve ... ile başlayan kelime
+Bulma şeklinde üç ana görevimiz var.
+
+
+
+        Çözüm:
+
+* Temel yapı şöyle bu tries yapıları neredeyse birebir ağaç yapısı ile aynadır.
+Elimde bir başlangıç olarak root var ve bu root keyler sayesinde haritalama
+Yapabiliyor yani kendisinden sonra nereye giderse ne değer göreceğini root
+Değerde iken biliyor.
+
+* bunun üzerine bir adet imleç oluşturdum başlangıçta root da olacak şekilde
+Ve bu imleç for döngüsü ile üzerinde gezindiğim kelimelerin harfleri ile 
+karşılaştırma yapacak.
+* her harf için özellikle insert fonksiyonunda şu durumlar ortaya çıkabiliyor:
+        -imlecin bak key değerlerde aradığım harf varsa imleç güncellenir ve
+        Aramaya devam edilir.
+        -aradığım harf yoksa bir nesne olarak yeni harf yolu oluşturulur.
+
+*insert fonksiyonundaki mantığı birazcık güncelleyerek hem search hem de starts
+with fonksiyonlarında yazdım.
+
+* bu problemde öğrendiğim daha doğrusu hatırladığım en önemli bilgi node yapısının
+mapping kısmı idi.
+
+
+
+
+'''
+
+        
