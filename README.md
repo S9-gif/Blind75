@@ -49,6 +49,8 @@ Encode and Decode Strings
 | 36 |Find Median From Data Stream| Heap/Priority Queue | Hard | 2026-08-20|
 | 37 |Combination Sum| Backtracking| Medium | 2026-08-25|
 | 38 |Word Search| Backtracking| Medium | 2026-08-27|
+| 39 |Implement Trie (Prefix Tree)| Tries| Medium | 2026-09-08|
+
 
 
 
@@ -74,4 +76,6 @@ Encode and Decode Strings
 - Trees
 - Heap/Priority Queue
 - Backtracking
+- Tries
 - ...
+  
