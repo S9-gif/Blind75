@@ -50,7 +50,7 @@ Encode and Decode Strings
 | 37 |Combination Sum| Backtracking| Medium | 2026-08-25|
 | 38 |Word Search| Backtracking| Medium | 2026-08-27|
 | 39 |Implement Trie (Prefix Tree)| Tries| Medium | 2026-09-08|
-
+| 40 |Design Add and Search Word Data Structure| Tries| Medium | 2026-09-12|
 
 
 
