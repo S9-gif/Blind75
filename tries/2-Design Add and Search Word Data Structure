@@ -1,0 +1,96 @@
+'''2-Design Add and Search Word Data Structure'''
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end = False
+                
+
+
+class WordDictionary:
+
+    def __init__(self):
+        self.root = TrieNode()    
+
+    def addWord(self, word: str) -> None:
+        current=self.root
+
+        for char in word:
+
+            if char not in current.children:
+                current.children[char]=TrieNode()
+            current=current.children[char]
+
+        current.is_end = True
+
+
+
+    def search(self, word: str) -> bool:
+
+
+        def dfs(node, index):
+            # 1. Base case: index kelimenin sonuna ulaştıysa ne dönmeli?
+            if index == len(word):
+
+                return node.is_end   
+
+            char = word[index]
+
+            # 2. Normal harf durumu
+            if char != '.':
+                if char in node.children:
+                    return dfs(node.children[char], index + 1)
+                return False   
+                
+# çocuk var mı kontrolü + recursive çağrı + yoksa ne dönmeli?
+
+            # 3. Nokta durumu
+            else:
+                for child in node.children.values():
+                    if dfs(child, index+1):    
+                         return True              
+                return False
+
+                
+        return dfs(self.root, 0)
+
+
+
+
+
+
+'''
+        Problem:
+
+* önceki çözdüğümüz preferix tree problem bir problem yine aynı şekilde
+insert etme adımım var. Fakat farkı oluşturan arama şekli.
+* aramada bütün harflerin yerine geçebilen bir nokta elemanım var. Bu nokta 
+İçin dikkat etmem gerekenlerle birlikte doğru aramayı yapacağım.
+
+
+
+        Çözüm:
+
+* öncelikle önceki problemden de aşina olduğum insert fonksiyonunu yazdım.
+Bu noktada yeni node ekleyebilmek adına class dışında bir trieNode nesnesi
+Yarattık ve bu nesneyi yeni node'lar oluşturmak için kullandık.
+
+* problem asıl dikkat edilmesi gereken bahsettiğim gibi search fonksiyonu.
+Bu fonksiyonda hem noktalı durumlar hem de noktasız durumlar olarak ayrıştırmam
+Gerekli.Nokta her harfin yerine geçebildiği için bir kelimeyi ayırt etmenin
+Yolları bu kelimenin uzunluğuna ve bittiği noktaya bakmak olacaktır.
+
+
+
+
+
+
+
+
+
+
+'''
+
+
+
+
+        
