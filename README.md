@@ -78,5 +78,6 @@ Encode and Decode Strings
 - Heap/Priority Queue
 - Backtracking
 - Tries
+- Graphs
 - ...
   
