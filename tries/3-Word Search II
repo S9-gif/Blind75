@@ -1,0 +1,130 @@
+'''3-Word Search II'''
+
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end = False
+        self.word= None #Trie'da kelimelerin bittiği noktada kelimenin kendisini saklayacağım.Output verirken kolaylca alabilmek için.
+
+
+
+
+class Solution:
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        
+        self.rows = len(board)   #İndekslemeyi yapabilmek için
+        self.cols = len(board[0])
+        self.visited=set()  #Aynı zamanda bütün fonksiyonların ,nesene'nin değişkenlerinden yararlanabilmesi için self kullanmalıyım
+        self.output=set()
+        self.board = board
+        self.insert(words)  #Önce words üzerinden trie oluşturuyorum
+
+        for r in range(self.rows):
+            for c in range(self.cols):
+                char = board[r][c]  #Düzlem üzerinde geziniyorum
+                if char in self.root.children:  #Gezinme sonucu elde edilen karakter trie 'ın children'ında varsa alttakiler burası yoksa direkt for başka hüccreye geçer: 
+
+                    self.visited.add((r, c))    #visited'a ekle
+                    self.dfs((r, c), self.root.children[char])  #Ve dfs fonksiyonuna yeni parametreleri ver
+                    self.visited.remove((r, c)) #Yeni parametreler verildğine göre başka bir aramaya geçmişim demektir.Bu yüzden gezdiklerimi silebilirim.
+
+        return list(self.output)
+
+    def __init__(self):
+        self.root = TrieNode()
+
+
+
+    def insert(self, words: list) -> None:
+        
+
+
+        for word in words:
+            current= self.root
+
+            for char in word:
+                
+
+                if char not in current.children:
+
+                    current.children[char]=TrieNode()
+            
+                current = current.children[char]
+
+            current.is_end = True
+            current.word = word     #preferix tree1 örneğindeki gibi inset işlemleri sadece output için node da bitiş kısmında kelimenin kendisini saklıyoruz.
+
+
+
+
+    def dfs(self,pos,current):
+
+        r, c = pos  #r ve c findwords fonksiyonundan
+
+
+        if current.word is not None:# insert kısmında current.word eklenmişse ve varsa
+            self.output.add(current.word)   #   O kelimeyi output setin ekledim.
+        
+
+        for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:   # Yeni parametreler seçiliyor yukardaki dfs doğrultusunda
+            nr, nc = r + dr, c + dc
+
+            if nr < 0 or nr >= self.rows or nc < 0 or nc >= self.cols:
+                continue
+
+            if (nr, nc) in self.visited:
+                continue
+
+            new_char = self.board[nr][nc]
+
+            if new_char not in current.children:
+                continue
+
+            next_node = current.children[new_char]
+
+            self.visited.add((nr, nc))
+            self.dfs((nr, nc), next_node)
+            self.visited.remove((nr, nc))
+
+
+
+
+
+
+
+'''
+
+        Problem:
+
+
+* problem okuncağı üzere önceki çözdüğümüz iki problemin birleşimine işaret ediyor fakat ben bu birleşimi
+Biraz yanlış yorumladım ve bu yüzden kodu biraz karıştırdım fakat işin içinden çıkmayı başardım.
+word search probleminde olduğu gibi
+
+
+
+        Çözüm:
+    
+
+* çözümü özleyeceğim geri kalan mantık kodun içerisine yorum satırları olarak var.
+* daha önceden çözmüş olduğum bu problemden farkı trie yapısını kullanarak zamandan tasarruf ediyor olmamız.
+Trie gezilen yolları bir daha kullanmammızı sağlıyor üzerinden geçmemizi sağlıyor.
+
+
+
+
+
+
+
+
+
+'''
+
+
+
+
+
+
+
+
+        
