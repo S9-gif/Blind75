@@ -51,6 +51,7 @@ Encode and Decode Strings
 | 38 |Word Search| Backtracking| Medium | 2026-08-27|
 | 39 |Implement Trie (Prefix Tree)| Tries| Medium | 2026-09-08|
 | 40 |Design Add and Search Word Data Structure| Tries| Medium | 2026-09-12|
+| 41 |Word Search II| Tries| Hard | 2026-09-15|
 
 
 
